@@ -1,21 +1,23 @@
 # HelloElixir
 
-**TODO: Add description**
+A simple "Hello World" web server in Elixir.
 
-## Installation
+## Setup
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `hello_elixir` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:hello_elixir, "~> 0.1.0"}
-  ]
-end
+```bash
+mix setup
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/hello_elixir>.
+## Run Tests
 
+```bash
+mix test
+```
+
+## Run Server
+
+```bash
+mix server
+```
+
+Visit app at http://localhost:4000

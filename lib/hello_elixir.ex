@@ -1,18 +1,19 @@
 defmodule HelloElixir do
   @moduledoc """
-  Documentation for `HelloElixir`.
+  A Plug responsible for logging request info,
+  matching routes, and dispatching responses.
   """
+  use Plug.Router
 
-  @doc """
-  Hello world.
+  plug(Plug.Logger)
+  plug(:match)
+  plug(:dispatch)
 
-  ## Examples
+  get "/" do
+    send_resp(conn, 200, "Hello World!")
+  end
 
-      iex> HelloElixir.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  match _ do
+    send_resp(conn, 404, "Not Found")
   end
 end

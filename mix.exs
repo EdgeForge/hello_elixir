@@ -7,6 +7,7 @@ defmodule HelloElixir.MixProject do
       version: "0.1.0",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
+      aliases: aliases(),
       deps: deps()
     ]
   end
@@ -14,7 +15,8 @@ defmodule HelloElixir.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      mod: {HelloElixir.App, []}
     ]
   end
 
@@ -22,6 +24,13 @@ defmodule HelloElixir.MixProject do
   defp deps do
     [
       {:plug_cowboy, "~> 2.6"}
+    ]
+  end
+
+  defp aliases do
+    [
+      setup: ["deps.get"],
+      server: ["run --no-halt"],
     ]
   end
 end
